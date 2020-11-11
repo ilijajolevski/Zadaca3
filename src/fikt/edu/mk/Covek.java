@@ -1,9 +1,22 @@
 package fikt.edu.mk;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Covek {
     private int godini;
     private String ime;
     private String prezime;
+
+    public List<Covek> getBrakjaSestri() {
+        return brakjaSestri;
+    }
+
+    public void setBrakjaSestri(List<Covek> brakjaSestri) {
+        this.brakjaSestri = brakjaSestri;
+    }
+
+    private ArrayList<Covek> brakjaSestri;
 
     @Override
     public String toString() {
@@ -18,10 +31,30 @@ public class Covek {
         this.godini = godini;
         this.ime = ime;
         this.prezime = prezime;
+        this.brakjaSestri = new ArrayList<Covek>();
+    }
+
+    public void DodajBratSestra(Covek covek){
+        this.brakjaSestri.add(covek);
     }
 
     public Covek() {
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Covek covek = (Covek) o;
+        return godini == covek.godini &&
+                Objects.equals(ime, covek.ime) &&
+                Objects.equals(prezime, covek.prezime);
+    }
+
+    @Override
+    public int hashCode() {
+        return this.ime.hashCode()*45 + this.prezime.hashCode()+ this.godini;
     }
 
     public void setGodini(int godini) {

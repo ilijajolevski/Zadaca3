@@ -9,9 +9,10 @@ public class Main {
 
         Covek ilija = new Covek(15, "Ilija", "Jol");
         Covek c = new Covek();
-        c.setPrezime("prex");
-        c.setIme("im");
+        c.setPrezime("Ilija");
+        c.setIme("Jol");
         c.setGodini(2);
+        ilija.DodajBratSestra(c);
 
         System.out.println("Sporedba: " + ilija.toString().indexOf("drug str"));
         //StringTokenizer str = new StringTokenizer(ilija.toString());
@@ -35,5 +36,9 @@ public class Main {
         System.out.println(nizaOdLugje[2].toString());
 
 
+
+        //hashcode primer
+        System.out.println("Hashcode na ilija: " + ilija.hashCode());
+        System.out.println("Hashcode na     c: " + c.hashCode());
     }
 }
